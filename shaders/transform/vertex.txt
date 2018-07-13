@@ -1,0 +1,16 @@
+#version 330 core
+
+layout (location = 0) in vec3 pos;
+layout (location = 1) in vec2 in_tex;
+
+out vec2 out_tex;
+
+uniform mat4 m4_tr;
+uniform mat4 m4_vw;
+uniform mat4 m4_pr;
+
+void main() {
+    gl_Position = m4_pr * m4_vw * m4_tr * vec4(pos, 1);
+
+    out_tex = in_tex;
+}
